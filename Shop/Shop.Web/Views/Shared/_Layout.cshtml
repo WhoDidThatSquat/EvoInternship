@@ -58,12 +58,15 @@
         <nav class="site-navigation text-right text-md-center" role="navigation">
             <div class="container">
                 <ul class="site-menu js-clone-nav d-none d-md-block">
-                    
+
                     <li>@Html.ActionLink("Index", "Index", "Home")</li>
-                    <li><a href="shop.html">Shop</a></li>
+                    <li>@Html.ActionLink("Shop", "Index", "Shop")</li>
+       
                     <li>@Html.ActionLink("Promos", "Index", "Promos")</li>
-                    <li><a href="#">Membership</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li>@Html.ActionLink("Membership", "Index", "Membership")</li>
+             
+                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+
                 </ul>
             </div>
         </nav>

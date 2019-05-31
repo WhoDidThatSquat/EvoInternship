@@ -12,7 +12,7 @@ namespace Shop.Web.Controllers
         [HttpPost]
         public ActionResult Login(string userName, string password,string Role)
         {
-            User user  = ShopRepository.GetUserByName(userName);
+            User user  = LoginRepository.GetUserByName(userName);
 
             if (user == null || user.Password.ToString() != password)
             {

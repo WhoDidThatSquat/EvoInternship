@@ -1,16 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Domain;
 
 namespace Shop.Web.Controllers
 {
     public class ShopController : Controller
     {
-        public IActionResult Index()
+
+
+
+        public ActionResult Index(string sortby)
         {
-            return View();
+
+            List<Product> products = new List<Product>();
+
+            switch (sortby)
+            {
+                case "name-a-z":
+                    products = Infrastructure.ShopSorter.SortByNameAZ();
+                    break;
+                case "name-z-a":
+                    products = Infrastructure.ShopSorter.SortByNameZA();
+                    break;
+                case "price-l-h":
+                    products = Infrastructure.ShopSorter.PriceL2H();
+                    break;
+                case "price-h-l":
+                    products = Infrastructure.ShopSorter.PriceH2L();
+                    break;
+
+                default:
+                    products = Infrastructure.ShopSorter.GetProducts();
+                    break;
+
+            }
+            return View(products);
+
+
         }
     }
 }

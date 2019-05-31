@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shop.Web.Infrastructure
 {
-    public class ShopRepository
+    public class LoginRepository
     {
         static SqlConnection _connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=eShop;Trusted_Connection=True;");
 

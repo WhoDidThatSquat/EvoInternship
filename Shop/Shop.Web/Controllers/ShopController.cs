@@ -8,39 +8,7 @@ namespace Shop.Web.Controllers
     public class ShopController : Controller
     {
 
-        public ActionResult Products(int? id)
-        {
-            ViewBag.Title = "Products";
-            ViewBag.Message = "List of products:";
 
-            List<Product> products = Infrastructure.ShopSorter.SortByNameAZ();
-
-
-            // mark selected department
-
-            if (!id.HasValue)
-                products.First().Selected = true;
-            else
-            {
-                bool selectedSet = false;
-
-                foreach (var prod in products)
-                {
-                    if (prod.Id == id)
-                    {
-                        prod.Selected = true;
-                        selectedSet = true;
-                        break;
-                    }
-                }
-
-                if (!selectedSet)
-                    products.First().Selected = true;
-
-            }
-
-            return View(products);
-        }
 
         public ActionResult Index(string sortby)
         {
@@ -63,10 +31,12 @@ namespace Shop.Web.Controllers
                     break;
 
                 default:
+                    products = Infrastructure.ShopSorter.GetProducts();
                     break;
-            }
 
+            }
             return View(products);
+
 
         }
     }

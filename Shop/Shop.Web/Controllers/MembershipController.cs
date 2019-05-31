@@ -20,7 +20,7 @@ namespace Shop.Web.Controllers
         {
             User user = new User { Forename = forename, Surename = surename, Address = address, Email = email, Phone = phone, Password = password };
 
-            ShopRepository.Membership(user);
+            LoginRepository.Membership(user);
 
             return RedirectToAction("Index");
 

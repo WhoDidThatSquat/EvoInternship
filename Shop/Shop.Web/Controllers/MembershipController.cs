@@ -16,14 +16,27 @@ namespace Shop.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateUser(string forename, string surename, string address, string email, int phone, string password)
+        public ActionResult CreateCustomer(string forename, string surename, string address, string email, int phone, string password)
         {
-            User user = new User { Forename = forename, Surename = surename, Address = address, Email = email, Phone = phone, Password = password };
+            User user = new User { Name = forename, Surename = surename, Address = address, Email = email, Phone = phone, Password = password };
 
-            LoginRepository.Membership(user);
+            LoginRepository.CreateCustomer(user);
 
             return RedirectToAction("Index");
 
         }
+        /*
+
+        [HttpPost]
+        public ActionResult CreateUser(int id, string username, string password , string role)
+        {
+            User user = new User { ID = id, Username = username,  Password = password, Role = role };
+
+            LoginRepository.CreateUser(user);
+
+            return RedirectToAction("Index");
+
+        }
+        */
     }
 }

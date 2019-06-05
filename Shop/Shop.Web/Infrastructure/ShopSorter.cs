@@ -10,7 +10,7 @@ namespace Shop.Web.Infrastructure
 {
     public class ShopSorter
     {
-        static readonly SqlConnection _connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=Shop;Trusted_Connection=True;");
+        static readonly SqlConnection _connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=eShop;Trusted_Connection=True;");
 
         public static List<Product> SortByNameAZ()
         {

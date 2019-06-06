@@ -41,22 +41,14 @@ namespace Shop.Web.Controllers
 
         }
         
-        public ActionResult SingleShop()
+        public ActionResult SingleShop(int id)
         {
-           /* Product product = null;
-            static SqlConnection _connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=eShop;Trusted_Connection=True;");
-            SqlCommand cmd = new SqlCommand("SELECT id, name, description, price, model, brand FROM Product where id = @ ", _connection);
-            cmd.Parameters.Add(new SqlParameter("@id", id));
-            _connection.Open();
-            var row = cmd.ExecuteReader();
-            if (row.Read())
-            {
-                product = new Product
-                {
-                    Id = row
-                }
-            }*/
-            return View();
-        }
+            //Product product = new Product();
+            ViewBag.Message = "SingleShop";
+            Infrastructure.ShopSorter SingleShop = new Infrastructure.ShopSorter();
+            return View("SingleShop");
+      
+           // return View("SingleShop");   
+    }
     }
 }

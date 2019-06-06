@@ -141,6 +141,27 @@ namespace Shop.Web.Infrastructure
 
             return products;
         }
-
+        public Product SingleShop(int id)
+        {
+            Product product = null;
+            SqlCommand cmd = new SqlCommand("SELECT id, name, description, price, model, brand FROM Product where id = @id ", _connection);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            _connection.Open();
+            var row = cmd.ExecuteReader();
+            if (row.Read())
+            {
+                product = new Product
+                {
+                    Id = row.GetInt32(0),
+                    Name = row.GetString(1),
+                    Description = row.GetString(2),
+                    Price = row.GetDecimal(3),
+                    Model = row.GetString(4),
+                    Brand = row.GetString(5)
+                };
+            }
+            _connection.Close();
+            return product;
+        }
     }
 }

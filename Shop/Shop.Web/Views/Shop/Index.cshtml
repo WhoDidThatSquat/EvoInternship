@@ -42,10 +42,10 @@
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                     <div class="block-4 text-center border">
                         <figure class="block-4-image">
-                            <a href="/Shop/SingleShop?id="> <img src="images/placeMyHolder.jpg" alt="" class="img-fluid"></a>
+                            <a href="/Shop/SingleShop?id=@product.Id"> <img src=@product.ImageRefPath alt="If this shows up, I screwed up." class="img-fluid"></a>
                         </figure>
                         <div class="block-4-text p-4">
-                            <h3>@Html.ActionLink(product.Name,"SingleShop","Shop")</h3>
+                            <h3><a href="/Shop/SingleShop?id=@product.Id">@product.Name</a></h3>
                             <p class="mb-0">@product.Description</p>
                             <p class="text-primary font-weight-bold">$@product.Price</p>
                         </div>

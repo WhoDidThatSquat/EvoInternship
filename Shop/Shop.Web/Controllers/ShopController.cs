@@ -43,12 +43,11 @@ namespace Shop.Web.Controllers
         
         public ActionResult SingleShop(int id)
         {
-            //Product product = new Product();
+            
             ViewBag.Message = "SingleShop";
-            Infrastructure.ShopSorter SingleShop = new Infrastructure.ShopSorter();
-            return View("SingleShop");
-      
-           // return View("SingleShop");   
-    }
+            Product product = Infrastructure.ShopSorter.ShowItem(id);
+            return View(product);
+     
+        }
     }
 }

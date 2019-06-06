@@ -8,7 +8,7 @@ namespace Domain
 {
     public class Product
     {
-        public bool Selected { get; set; }
+        //public bool Selected { get; set; }
         public int Id { get; set; }
         public int CategoryId {get; set;}
         public string Name { get; set; }
@@ -17,6 +17,7 @@ namespace Domain
         public decimal? Price { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
-       
+        public string ImageRefPath { get; set; }
+        
     }
 }

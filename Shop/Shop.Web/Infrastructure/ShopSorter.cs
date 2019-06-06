@@ -140,11 +140,12 @@ namespace Shop.Web.Infrastructure
             _connection.Close();
 
             return products;
+
         }
-        public Product SingleShop(int id)
+        public static Product ShowItem(int id)
         {
             Product product = null;
-            SqlCommand cmd = new SqlCommand("SELECT id, name, description, price, model, brand FROM Product where id = @id ", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT id, name, description, price, model, brand, imageRefPath FROM Product where id = @id  ", _connection);
             cmd.Parameters.Add(new SqlParameter("@id", id));
             _connection.Open();
             var row = cmd.ExecuteReader();
@@ -157,11 +158,14 @@ namespace Shop.Web.Infrastructure
                     Description = row.GetString(2),
                     Price = row.GetDecimal(3),
                     Model = row.GetString(4),
-                    Brand = row.GetString(5)
+                    Brand = row.GetString(5),
+                    ImageRefPath = row.GetString(6)
                 };
+
             }
             _connection.Close();
             return product;
         }
+
     }
 }

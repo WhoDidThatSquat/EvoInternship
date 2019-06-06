@@ -1,6 +1,6 @@
 ﻿@model Domain.Product
 @{
-    ViewData["Title"] = "SingleShop";
+    ViewBag.Title = "SingleShop";
 }
 
 
@@ -8,13 +8,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="~/images/placeMyHolder.jpg" alt="Image" class="img-fluid">
+                <img src=@Model.ImageRefPath alt="If this shows up, I screwed up." class="img-fluid">
             </div>
+            
             <div class="col-md-6">
-                <h2 class="text-black">AAA</h2>
-                <p>@Html.DisplayFor(Model => Model.Description)</p>
-                <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
-                <p><strong class="text-primary h4">@Html.DisplayFor(Model => Model.Price)</strong></p>
+                <h2 class="text-black">@Model.Name.</h2>
+                <h2> @Model.Id</h2>
+                <p class="mb-4">@Model.Description</p>
+                <p><strong class="text-primary h4">@Model.Price</strong></p>
+                <p>@Model.Model</p>
+                <p>@Model.Brand</p>
                 <div class="mb-1 d-flex">
                     <label for="option-sm" class="d-flex mr-3 mb-3">
                         <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
@@ -41,7 +44,7 @@
                     </div>
 
                 </div>
-                <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+                <p><a href="#" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
 
             </div>
         </div>

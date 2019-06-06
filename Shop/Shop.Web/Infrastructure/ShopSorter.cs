@@ -15,7 +15,7 @@ namespace Shop.Web.Infrastructure
         public static List<Product> SortByNameAZ()
         {
             List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price FROM Product Order by Name ASC", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price, imageRefPath FROM Product Order by Name ASC", _connection);
 
             _connection.Open();
 
@@ -28,7 +28,8 @@ namespace Shop.Web.Infrastructure
                     Id = row.GetInt32(0),
                     Name = row.GetString(1),
                     Description = row.GetString(2),
-                    Price = row.GetDecimal(3)
+                    Price = row.GetDecimal(3),
+                    ImageRefPath = row.GetString(4)
                 };
 
                 products.Add(product);
@@ -41,7 +42,7 @@ namespace Shop.Web.Infrastructure
         public static List<Product> SortByNameZA()
         {
             List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price FROM Product Order by Name DESC", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price, imageRefPath FROM Product Order by Name DESC", _connection);
 
             _connection.Open();
 
@@ -54,7 +55,8 @@ namespace Shop.Web.Infrastructure
                     Id = row.GetInt32(0),
                     Name = row.GetString(1),
                     Description = row.GetString(2),
-                    Price = row.GetDecimal(3)
+                    Price = row.GetDecimal(3),
+                    ImageRefPath = row.GetString(4)
                 };
 
                 products.Add(product);
@@ -67,7 +69,7 @@ namespace Shop.Web.Infrastructure
         public static List<Product> PriceL2H()
         {
             List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price FROM Product Order by Price ASC", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price, imageRefPath FROM Product Order by Price ASC", _connection);
 
             _connection.Open();
 
@@ -80,7 +82,8 @@ namespace Shop.Web.Infrastructure
                     Id = row.GetInt32(0),
                     Name = row.GetString(1),
                     Description = row.GetString(2),
-                    Price = row.GetDecimal(3)
+                    Price = row.GetDecimal(3),
+                    ImageRefPath = row.GetString(4)
                 };
 
                 products.Add(product);
@@ -93,7 +96,7 @@ namespace Shop.Web.Infrastructure
         public static List<Product> PriceH2L()
         {
             List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name],description, price FROM Product Order by Price DESC", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT ID, [Name],description, price, imageRefPath FROM Product Order by Price DESC", _connection);
 
             _connection.Open();
 
@@ -106,7 +109,8 @@ namespace Shop.Web.Infrastructure
                     Id = row.GetInt32(0),
                     Name = row.GetString(1),
                     Description = row.GetString(2),
-                    Price = row.GetDecimal(3)
+                    Price = row.GetDecimal(3),
+                    ImageRefPath = row.GetString(4)
                 };
 
                 products.Add(product);
@@ -119,7 +123,7 @@ namespace Shop.Web.Infrastructure
         public static List<Product> GetProducts()
         {
             List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name],description, price FROM Product ", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT ID, [Name],description, price, imageRefPath FROM Product ", _connection);
 
             _connection.Open();
 
@@ -132,7 +136,8 @@ namespace Shop.Web.Infrastructure
                     Id = row.GetInt32(0),
                     Name = row.GetString(1),
                     Description = row.GetString(2),
-                    Price = row.GetDecimal(3)
+                    Price = row.GetDecimal(3),
+                    ImageRefPath = row.GetString(4)
                 };
 
                 products.Add(product);

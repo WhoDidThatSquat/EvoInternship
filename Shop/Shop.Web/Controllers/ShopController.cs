@@ -2,13 +2,14 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Domain;
+using System.Data.SqlClient;
 
 namespace Shop.Web.Controllers
 {
     public class ShopController : Controller
     {
 
-
+       
 
         public ActionResult Index(string sortby)
         {
@@ -36,8 +37,17 @@ namespace Shop.Web.Controllers
 
             }
             return View(products);
+            
 
-
+        }
+        
+        public ActionResult SingleShop(int id)
+        {
+            
+            ViewBag.Message = "SingleShop";
+            Product product = Infrastructure.ShopSorter.ShowItem(id);
+            return View(product);
+     
         }
     }
 }

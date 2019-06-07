@@ -42,10 +42,10 @@
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                     <div class="block-4 text-center border">
                         <figure class="block-4-image">
-                            <a href="shop-single.html"><img src="images/placeMyHolderEdit.jpg" alt="" class="img-fluid"></a>
+                            <a href="/Shop/SingleShop?id=@product.Id"> <img src="@Url.Content(@product.ImageRefPath)" class="img-fluid"></a>
                         </figure>
                         <div class="block-4-text p-4">
-                            <h3><a href="shop-single.html">@product.Name</a></h3>
+                            <h3><a href="/Shop/SingleShop?id=@product.Id">@product.Name</a></h3>
                             <p class="mb-0">@product.Description</p>
                             <p class="text-primary font-weight-bold">$@product.Price</p>
                         </div>

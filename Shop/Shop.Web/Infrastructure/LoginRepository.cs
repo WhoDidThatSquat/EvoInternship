@@ -58,14 +58,13 @@ namespace Shop.Web.Infrastructure
             _connection.Close();
         }
 
-       /* public static void CreateUser(User user)
+        public static void CreateUser(User user)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [User] (ID,Username,Password,Role) VALUES (@id,@username,@password,@role)", _connection);
-
-            cmd.Parameters.Add(new SqlParameter("@id", user.ID));
-            cmd.Parameters.Add(new SqlParameter("@username", user.Username));
+            SqlCommand cmd = new SqlCommand("INSERT INTO [User] (Username,Password) VALUES (@username,@password)", _connection);
+            
+            cmd.Parameters.Add(new SqlParameter("@username", user.Name));
             cmd.Parameters.Add(new SqlParameter("@password", user.Password));
-            cmd.Parameters.Add(new SqlParameter("@role", user.Role));
+            
             
 
             if (_connection.State != ConnectionState.Open)
@@ -74,6 +73,6 @@ namespace Shop.Web.Infrastructure
             cmd.ExecuteNonQuery();
 
             _connection.Close();
-        }*/
+        }
     }
 }

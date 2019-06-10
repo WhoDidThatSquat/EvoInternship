@@ -12,13 +12,14 @@ namespace Shop.Web.Infrastructure
     {
         static SqlConnection _connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=eShop;Trusted_Connection=True;");
 
-        public static User GetUserByName(string name)
+        public static User GetUserByName(string name,string password)
         {
-            SqlCommand cmd = new SqlCommand("SELECT ID, UserName, Password, role  FROM [eShop] WHERE UserName = @n ", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT UserName, Password FROM [eShop] WHERE UserName = @n ", _connection);
             cmd.Parameters.Add(new SqlParameter("@n", name));
             
             if (_connection.State != ConnectionState.Open)
                 _connection.Open();
+            
 
             var row = cmd.ExecuteReader();
 
@@ -31,7 +32,7 @@ namespace Shop.Web.Infrastructure
                   
                     Username = row.GetString(1),
                     Password =row.GetString(2),
-                    Role = row.GetString(3)
+                    /*Role = row.GetString(3)*/
                 };
             }
 
@@ -51,7 +52,8 @@ namespace Shop.Web.Infrastructure
             cmd.Parameters.Add(new SqlParameter("@phone", user.Phone));
 
             if (_connection.State != ConnectionState.Open)
-                _connection.Open();
+            _connection.Open();
+           
 
             cmd.ExecuteNonQuery();
 

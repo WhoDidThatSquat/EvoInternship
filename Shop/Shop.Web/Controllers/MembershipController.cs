@@ -25,18 +25,17 @@ namespace Shop.Web.Controllers
             return RedirectToAction("Index");
 
         }
-        /*
-
-        [HttpPost]
-        public ActionResult CreateUser(int id, string username, string password , string role)
+       /*   
+        
+        public ActionResult CreateUser(string username, string password )
         {
-            User user = new User { ID = id, Username = username,  Password = password, Role = role };
+            User user = new User { Username = username,  Password = password};
 
             LoginRepository.CreateUser(user);
 
-            return RedirectToAction("Index");
 
         }
         */
+        
     }
 }

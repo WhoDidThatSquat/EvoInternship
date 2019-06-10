@@ -8,7 +8,7 @@ using Shop.Web.Infrastructure;
 
 namespace Shop.Web.Controllers
 {
-    public class AutentificationController : Controller
+    public class AuthenticationController : Controller
     {
         [HttpPost]
         public ActionResult Login(string userName, string password,string Role)

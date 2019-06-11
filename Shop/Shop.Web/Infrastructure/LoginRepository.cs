@@ -14,7 +14,7 @@ namespace Shop.Web.Infrastructure
 
         public static User GetUserByName(string name)
         {
-            SqlCommand cmd = new SqlCommand("SELECT ID, UserName, Password, role  FROM [eShop] WHERE UserName = @n ", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT ID, UserName, Password, role  FROM [User] WHERE UserName = @n ", _connection);
             cmd.Parameters.Add(new SqlParameter("@n", name));
             
             if (_connection.State != ConnectionState.Open)
@@ -31,7 +31,7 @@ namespace Shop.Web.Infrastructure
                   
                     Username = row.GetString(1),
                     Password =row.GetString(2),
-                    Role = row.GetString(3)
+                 
                 };
             }
 

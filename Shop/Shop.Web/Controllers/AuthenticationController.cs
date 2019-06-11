@@ -19,8 +19,8 @@ namespace Shop.Web.Controllers
 
             if (user == null || user.Password.ToString() != password)
             {
-                /*HttpContext.Session.Set("name", null);*/
-                ViewBag.message = "Parola sau Nume incorect!";
+                HttpContext.Session.Set("name", null);
+				ViewBag.message = "Parola sau Nume incorect!";
 
                 return View("Login");
             }

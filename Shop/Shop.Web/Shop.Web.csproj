@@ -25,6 +25,9 @@
     <Content Remove="wwwroot\css\owl.carousel.min.css" />
     <Content Remove="wwwroot\css\owl.theme.default.min.css" />
     <Content Remove="wwwroot\css\style.css" />
+    <Content Remove="wwwroot\images\aragaz-beko-fsgt62110dxo-4-arzatoare-aprindere-electrica-grill-rotisor-inox.jpg" />
+    <Content Remove="wwwroot\images\frigider-samus-ssx-550nf--side-by-side-472l-afisaj-lcd-a--inox.jpg" />
+    <Content Remove="wwwroot\images\masina-de-spalat-rufe-automata-albatros-awm1062a--1000rotmin-6kg-clasa-a--alb.jpg" />
   </ItemGroup>
 
   <ItemGroup>

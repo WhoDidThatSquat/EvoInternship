@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using Shop.Web.Infrastructure;
 
 
 namespace Shop.Web.Controllers
 {
-    public class AuthenticationController : Controller
+    public class AutentificationController : Controller
     {
         [HttpPost]
         public ActionResult Login(string userName, string password)
@@ -19,15 +20,14 @@ namespace Shop.Web.Controllers
             if (user == null || user.Password.ToString() != password)
             {
                 HttpContext.Session.Set("name", null);
-                ViewBag.message = "Parola sau Nume incorect!";
+				ViewBag.message = "Parola sau Nume incorect!";
 
                 return View("Login");
             }
             else
             {
               
-                HttpContext.Session.Set("user",null);
-                HttpContext.Session.Set("password", null);
+                HttpContext.Session.SetString("user", JsonConvert.SerializeObject(user));
                 return RedirectToAction("Index", "Home");
               
             }

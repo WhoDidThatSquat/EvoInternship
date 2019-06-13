@@ -20,7 +20,7 @@ namespace Shop.Web.Infrastructure
             
             
             List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, Name ,description, price, brand, model, link FROM Product  WHERE id IN (SELECT IDPromotion FROM Promotions)", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT Product.ID, Product.Name ,Product.description, Product.price, Product.brand, Product.model, Product.link, Promotions.Discount FROM Product, Promotions Where [Product].id IN ( [Promotions].IDPromotion) ", _connection);
             var row = cmd.ExecuteReader();
            
             while (row.Read())
@@ -33,7 +33,8 @@ namespace Shop.Web.Infrastructure
                     Price = row.GetDecimal(3),
                     Brand=row.GetString(4),
                     Model = row.GetString(5),
-                    ImageRefPath= row.GetString(6)
+                    ImageRefPath= row.GetString(6),
+                    Discount=row.GetInt32(7)
                 };
                 products.Add(product);
                 
@@ -44,5 +45,17 @@ namespace Shop.Web.Infrastructure
             return products;
         }
 
+
+       
+
+
+
+
+
     }
+
+
+
+
+
 }

@@ -123,7 +123,7 @@ namespace Shop.Web.Infrastructure
         public static List<Product> GetProducts()
         {
             List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name],description, price, imageRefPath FROM Product ", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT ID, [Name],description, price, link FROM Product ", _connection);
 
             _connection.Open();
 
@@ -150,7 +150,7 @@ namespace Shop.Web.Infrastructure
         public static Product ShowItem(int id)
         {
             Product product = null;
-            SqlCommand cmd = new SqlCommand("SELECT id, name, description, price, model, brand, imageRefPath FROM Product where id = @id  ", _connection);
+            SqlCommand cmd = new SqlCommand("SELECT id, name, description, price, model, brand, link FROM Product where id = @id  ", _connection);
             cmd.Parameters.Add(new SqlParameter("@id", id));
             _connection.Open();
             var row = cmd.ExecuteReader();

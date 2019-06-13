@@ -64,6 +64,7 @@
     <Build Include="Tables\User.sql" />
     <Build Include="Tables\Product.sql" />
     <Build Include="Tables\OrderItem.sql" />
+    <Build Include="Promotions.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SchemaCompare.scmp" />

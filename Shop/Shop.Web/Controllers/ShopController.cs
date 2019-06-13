@@ -49,5 +49,28 @@ namespace Shop.Web.Controllers
             return View(product);
      
         }
+
+
+        public ActionResult CategoryModel(string model)
+        {
+
+            List<Product> products = new List<Product>();
+
+            products = Infrastructure.ShopSorter.CategoryModel(model);
+            return View(products);
+
+
+        }
+
+        public ActionResult CategoryBrand(string brand)
+        {
+
+            List<Product> products = new List<Product>();
+
+            products = Infrastructure.ShopSorter.CategoryModel(brand);
+            return View(products);
+
+
+        }
     }
 }

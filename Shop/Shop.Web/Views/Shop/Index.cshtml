@@ -70,44 +70,86 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-3 order-1 mb-5 mb-md-0">
         <div class="border p-4 rounded mb-4">
-            <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Brands</h3>
             <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span></span> <span class="text-black ml-auto">(2,220)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
+                @foreach (var category in Model)
+                {
+                    <li class="mb-1">@Html.ActionLink(category.Brand,"CategoryBrand","ShopSorter")</li>@*<span>@category.CategoryId</span> <span class="text-black ml-auto">@category.Brand</span></a></li>*@
+                }
+
             </ul>
         </div>
-        @*
+    </div>
+    
+    <div class="col-md-3 order-1 mb-5 mb-md-0">
         <div class="border p-4 rounded mb-4">
-            <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                <div id="slider-range" class="border-primary"></div>
-                <input type="range" min="0" max="100" value="50" step="1" oninput="sliderChange(this.value)" />
-                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-            </div>
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Models</h3>
+            <ul class="list-unstyled mb-0">
+                @foreach (var category in Model)
+                {
+                    <li class="mb-1">@Html.ActionLink(category.Model,"CategoryModel","ShopSorter")</li>@*<span>@category.CategoryId</span> <span class="text-black ml-auto">@category.Model</span></a></li>*@
+                }
 
-            <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-                <label for="s_sm" class="d-flex">
-                    <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">#</span>
-                </label>
-                <label for="s_md" class="d-flex">
-                    <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">#</span>
-                </label>
-                <label for="s_lg" class="d-flex">
-                    <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">#</span>
-                </label>
-            </div>*@
-
-
-
+            </ul>
         </div>
     </div>
 
 </div>
+@*<partial name="~/Views/Shop/Category.cshtml" />
+    @Html.Partial("~/Views/Shared/Category.cshtml", Category)
+*@
+
+
+
+@*@Html.Partial("~/Views/Shop/Category.cshtml")
+    @Html.Partial("Category", Model) *@
+
+
+
+
+
+
+
+
+
+
+
+@*
+
+        THIS PART WAS THE SLIDER THAT CONTROLLED THE PRICE
+        it was not implemented
+
+
+
+    <div class="border p-4 rounded mb-4">
+        <div class="mb-4">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
+            <div id="slider-range" class="border-primary"></div>
+            <input type="range" min="0" max="100" value="50" step="1" oninput="sliderChange(this.value)" />
+            <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+        </div>
+
+        <div class="mb-4">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
+            <label for="s_sm" class="d-flex">
+                <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">#</span>
+            </label>
+            <label for="s_md" class="d-flex">
+                <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">#</span>
+            </label>
+            <label for="s_lg" class="d-flex">
+                <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">#</span>
+            </label>
+        </div>
+
+
+
+    </div>*@
+
+
+
 @*<script>
         var slider = document.getElementById("amount");
         var output = document.getElementById("shop");

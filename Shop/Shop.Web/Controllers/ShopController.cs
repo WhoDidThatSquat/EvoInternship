@@ -9,7 +9,7 @@ namespace Shop.Web.Controllers
     public class ShopController : Controller
     {
 
-       
+
 
         public ActionResult Index(string sortby)
         {
@@ -37,40 +37,44 @@ namespace Shop.Web.Controllers
 
             }
             return View(products);
-            
+
 
         }
-        
+
         public ActionResult SingleShop(int id)
         {
-            
+
             ViewBag.Message = "SingleShop";
             Product product = Infrastructure.ShopSorter.ShowItem(id);
             return View(product);
-     
+
         }
 
 
-        public ActionResult CategoryModel(string model)
+        public ActionResult CategoryModel(string Model)
         {
-
             List<Product> products = new List<Product>();
-
-            products = Infrastructure.ShopSorter.CategoryModel(model);
+            products = Infrastructure.ShopSorter.CategoryModel(Model);
             return View(products);
-
-
         }
 
         public ActionResult CategoryBrand(string brand)
         {
-
             List<Product> products = new List<Product>();
-
             products = Infrastructure.ShopSorter.CategoryModel(brand);
             return View(products);
-
-
+        }
+        public ActionResult CategorySorterModel(string Model)
+        {
+            List<Product> products = new List<Product>();
+            products = Infrastructure.ShopSorter.CategorySorterModel(Model);
+            return View(products);
+        }
+        public ActionResult CategorySorterBrand(string Brand)
+        {
+            List<Product> products = new List<Product>();
+             
+            return View(products);
         }
     }
 }

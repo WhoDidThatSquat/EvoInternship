@@ -51,30 +51,36 @@ namespace Shop.Web.Controllers
         }
 
 
-        public ActionResult CategoryModel(string Model)
-        {
-            List<Product> products = new List<Product>();
-            products = Infrastructure.ShopSorter.CategoryModel(Model);
-            return View(products);
-        }
+        //public ActionResult CategoryModel(string Model)
+        //{
+        //    List<Product> products = new List<Product>();
+        //    products = Infrastructure.ShopSorter.CategoryModel(Model);
+        //    return View(products);
+        //}
 
-        public ActionResult CategoryBrand(string brand)
+        public ActionResult CategoryBrand(string sortby)
         {
             List<Product> products = new List<Product>();
-            products = Infrastructure.ShopSorter.CategoryModel(brand);
+
+            switch (sortby)
+            {
+                case "BrandTest":
+                    products = Infrastructure.ShopSorter.CategoryBrand(sortby);
+                    break;
+                case "BrandTest2":
+                    products = Infrastructure.ShopSorter.CategoryBrand(sortby);
+                    break;
+                case "BrandTest3":
+                    products = Infrastructure.ShopSorter.CategoryBrand(sortby);
+                    break;
+                default:
+                    products = Infrastructure.ShopSorter.GetProducts();
+                    break;
+
+            }
+
             return View(products);
         }
-        public ActionResult CategorySorterModel(string Model)
-        {
-            List<Product> products = new List<Product>();
-            products = Infrastructure.ShopSorter.CategorySorterModel(Model);
-            return View(products);
-        }
-        public ActionResult CategorySorterBrand(string Brand)
-        {
-            List<Product> products = new List<Product>();
-             
-            return View(products);
-        }
+        
     }
 }

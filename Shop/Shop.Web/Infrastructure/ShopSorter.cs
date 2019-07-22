@@ -181,11 +181,11 @@ namespace Shop.Web.Infrastructure
             _connection.Close();
             return product;
         }
-        public static List<Product> CategoryBrand(string brand)
+        public static List<Product> CategoryBrand(string sortby)
         {
             List<Product> products = new List<Product>();
             SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price, brand, model, imageRefPath FROM Product Where Brand=@brand", _connection);
-            cmd.Parameters.Add(new SqlParameter("@brand", brand));
+            cmd.Parameters.Add(new SqlParameter("@brand", sortby));
             _connection.Open();
 
             var row = cmd.ExecuteReader();
@@ -209,62 +209,7 @@ namespace Shop.Web.Infrastructure
 
             return products;
         }
-        public static List<Product> CategoryModel(string Model)
-        {
-            List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price, brand, model, imageRefPath FROM Product Where Model=@model", _connection);
-            cmd.Parameters.Add(new SqlParameter("@model", Model));
-            _connection.Open();
-
-            var row = cmd.ExecuteReader();
-
-            while (row.Read())
-            {
-                Product product = new Product
-                {
-                    Id = row.GetInt32(0),
-                    Name = row.GetString(1),
-                    Description = row.GetString(2),
-                    Price = row.GetDecimal(3),                    
-                    Brand = row.GetString(4),
-                    Model = row.GetString(5),
-                    ImageRefPath = row.GetString(6)
-                };
-
-                products.Add(product);
-            }
-            _connection.Close();
-
-            return products;
-        }
-        public static List<Product> CategorySorterModel(string Model)
-        {
-            List<Product> products = new List<Product>();
-            SqlCommand cmd = new SqlCommand("SELECT ID, [Name], description, price, brand, model, imageRefPath FROM Product Where Model=@Model Order By Model ASC", _connection);
-            cmd.Parameters.Add(new SqlParameter("@Model", Model));
-            _connection.Open();
-
-            var row = cmd.ExecuteReader();
-
-            while (row.Read())
-            {
-                Product product = new Product
-                {
-                    Id = row.GetInt32(0),
-                    Name = row.GetString(1),
-                    Description = row.GetString(2),
-                    Price = row.GetDecimal(3),
-                    Brand = row.GetString(4),
-                    Model = row.GetString(5),
-                    ImageRefPath = row.GetString(6)
-                };
-
-                products.Add(product);
-            }
-            _connection.Close();
-
-            return products;
-        }
+       
 
 
 

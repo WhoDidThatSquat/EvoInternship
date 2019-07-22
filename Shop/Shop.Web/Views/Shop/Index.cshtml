@@ -13,11 +13,11 @@
                 <div class="d-flex">
                     <div class="dropdown mr-1 ml-md-auto">
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        @*<div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                             <a class="dropdown-item" href="#">Men</a>
                             <a class="dropdown-item" href="#">Women</a>
                             <a class="dropdown-item" href="#">Children</a>
-                        </div>
+                        </div>*@
                     </div>
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Sort By</button>
@@ -74,11 +74,9 @@
         <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Brands</h3>
             <ul class="list-unstyled mb-0">
-                @foreach (var category in Model)
-                {
-                    <li class="mb-1"><a href="Shop?Brand=@category.Brand">@category.Brand</a></li>
-                }
-
+                <li class="mb-1"><a href="Shop?sortby=BrandTest"> BrandTest </a></li>
+                <li class="mb-1"><a href="Shop?sortby=BrandTest2"> BrandTest2 </a></li>
+                <li class="mb-1"><a href="Shop?sortby=BrandTest3"> BrandTest3 </a></li>
             </ul>
         </div>
     </div>
